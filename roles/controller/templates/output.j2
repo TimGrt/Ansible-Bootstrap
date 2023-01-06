@@ -1,0 +1,7 @@
+{% for host in known_hosts_ssh_keys.results %}
+{% if host.rc != 0 %}
+ERROR:   Host '{{ host.item }}' is missing! Host will be added!
+{% else %}
+SUCCESS: Host '{{ host.item }}' is already present.
+{% endif %}
+{% endfor %}

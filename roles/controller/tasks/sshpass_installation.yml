@@ -1,0 +1,21 @@
+---
+
+- name: Check for sudo permissions
+  ansible.builtin.command: sudo -n -l
+  register: sudo_permission
+  become: true
+  failed_when: sudo_permission.rc > 1
+  changed_when: false
+  args:
+    warn: false
+
+- name: Info
+  ansible.builtin.fail:
+    msg: "You do not have sufficient sudo permissions, installing 'sshpass' won't work! Execute playbook with '--ask-become-pass' as a workaround."
+  when: sudo_permission.module_stderr is defined
+
+- name: Install sshpass, this is required for Ansible ssh connection via password
+  ansible.builtin.package:
+    name: sshpass
+    state: present
+  become: true

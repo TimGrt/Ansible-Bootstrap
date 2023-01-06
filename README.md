@@ -1,2 +1,3 @@
-# Ansible-Bootstrap
-Ansible Playbook to bootstrap all nodes in a given inventory file
+# Ansible Collection - timgrt.bootstrap
+
+Documentation for the collection.

@@ -1,0 +1,7 @@
+---
+
+- name: Prepare Ansible controller
+  hosts: localhost
+  connection: local
+  roles:
+    - controller

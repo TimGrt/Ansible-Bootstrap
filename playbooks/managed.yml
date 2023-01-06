@@ -1,0 +1,9 @@
+---
+
+- name: Bootstrap playbook, run it with '-e ansible_user=<default-user> --ask-pass --ask-become-pass'
+  hosts: all
+  become: true
+  vars:
+    automation_user: ansible
+  roles:
+    - managed

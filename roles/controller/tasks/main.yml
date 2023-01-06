@@ -1,0 +1,9 @@
+---
+
+- ansible.builtin.import_tasks: sshpass_installation.yml  # noqa name[missing]
+  tags:
+    - sshpass
+
+- ansible.builtin.import_tasks: inventory_known_hosts.yml  # noqa name[missing]
+  tags:
+    known_hosts
