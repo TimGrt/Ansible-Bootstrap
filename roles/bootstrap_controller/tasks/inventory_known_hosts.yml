@@ -1,20 +1,21 @@
 ---
 
 - name: Get SSH key for inventory hosts from known_hosts file
-  command:
+  ansible.builtin.command:
     cmd: "ssh-keygen -F {{ hostvars[item]['ansible_host'] }}"
   changed_when: false
   failed_when: false
-  #check_mode: true
+  check_mode: true
   loop: "{{ groups.all }}"
   register: known_hosts_ssh_keys
 
 - name: Output state of hosts in known_hosts file
   ansible.builtin.debug:
     msg: "{{ lookup('ansible.builtin.template', 'output.j2') }}"
+  when: known_hosts_ssh_keys.results | length > 0
 
 - name: Add IP address of hosts missing in known_hosts file to variable
-  set_fact:
+  ansible.builtin.set_fact:
     missing_hosts: "{{ missing_hosts | default([]) + [hostvars[item.item]['ansible_host']] }}"
   loop: "{{ known_hosts_ssh_keys.results }}"
   loop_control:

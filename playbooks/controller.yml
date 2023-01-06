@@ -4,4 +4,4 @@
   hosts: localhost
   connection: local
   roles:
-    - controller
+    - timgrt.bootstrap.bootstrap_controller

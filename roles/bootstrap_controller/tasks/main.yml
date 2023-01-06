@@ -6,4 +6,4 @@
 
 - ansible.builtin.import_tasks: inventory_known_hosts.yml  # noqa name[missing]
   tags:
-    known_hosts
+    - known_hosts
