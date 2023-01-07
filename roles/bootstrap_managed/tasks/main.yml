@@ -5,6 +5,7 @@
     name: "{{ automation_user }}"
     shell: /bin/bash
     comment: "User for Ansible automation tasks"
+  become: true
 
 - name: Enable sudo permissions for Ansible user
   ansible.builtin.copy:
@@ -12,6 +13,7 @@
     dest: /etc/sudoers.d/ansible
     validate: /usr/sbin/visudo -cf %s
     mode: 0644
+  become: true
 
 - name: Ensure public key for current user exists
   ansible.builtin.stat:
@@ -28,3 +30,4 @@
   ansible.builtin.package:
     name: "*"
     state: latest
+  become: true

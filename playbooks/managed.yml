@@ -1,7 +1,6 @@
 ---
 
-- name: Bootstrap playbook, run it with '-e ansible_user=<default-user> --ask-pass --ask-become-pass'
+- name: Bootstrap playbook, run it with '--ask-pass --ask-become-pass -e ansible_user=<available-privileged-user>' initially
   hosts: all
-  become: true
   roles:
-    - bootstrap_managed
+    - timgrt.bootstrap.bootstrap_managed

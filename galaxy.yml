@@ -34,7 +34,11 @@ license_file: ''
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
-tags: [bootstrap]
+tags:
+  - bootstrap
+  - linux
+  - server
+  - development
 
 # Collections that this collection requires to be installed for it to be usable. The key of the dict is the
 # collection label 'namespace.name'. The value is a version range
@@ -46,10 +50,7 @@ dependencies: {}
 repository: https://github.com/TimGrt/Ansible-Bootstrap
 
 # The URL to any online docs
-documentation: http://docs.example.com
-
-# The URL to the homepage of the collection/project
-homepage: http://example.com
+documentation: https://github.com/TimGrt/Ansible-Bootstrap/blob/main/README.md
 
 # The URL to the collection issue tracker
 issues: https://github.com/TimGrt/Ansible-Bootstrap/issues
