@@ -25,6 +25,7 @@
     user: "{{ automation_user }}"
     state: present
     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  become: true
 
 - name: Upgrade all packages  # noqa package-latest
   ansible.builtin.package:
