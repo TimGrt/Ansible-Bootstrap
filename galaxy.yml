@@ -1,3 +1,4 @@
+---
 ### REQUIRED
 # The namespace of the collection. This can be a company/brand/organization or product namespace under which all
 # content lives. May only contain alphanumeric lowercase characters and underscores. Namespaces cannot start with
@@ -16,8 +17,7 @@ readme: README.md
 # A list of the collection's content authors. Can be just the name or in the format 'Full Name <email> (url)
 # @nicks:irc/im.site#channel'
 authors:
-- Tim Grützmacher <tim.gruetzmacher@mail.de>
-
+  - Tim Grützmacher <tim.gruetzmacher@mail.de>
 
 ### OPTIONAL but strongly recommended
 # A short summary description of the collection
@@ -26,11 +26,11 @@ description: This collection is used to bootstrap the controller and managed nod
 # Either a single license or a list of licenses for content inside of a collection. Ansible Galaxy currently only
 # accepts L(SPDX,https://spdx.org/licenses/) licenses. This key is mutually exclusive with 'license_file'
 license:
-- MIT
+  - MIT
 
 # The path to the license file for the collection. This path is relative to the root of the collection. This key is
 # mutually exclusive with 'license'
-license_file: ''
+license_file: ""
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
@@ -45,7 +45,6 @@ tags:
 # L(specifiers,https://python-semanticversion.readthedocs.io/en/latest/#requirement-specification). Multiple version
 # range specifiers can be set and are separated by ','
 dependencies: {}
-
 # The URL of the originating SCM repository
 repository: https://github.com/TimGrt/Ansible-Bootstrap
 
@@ -60,4 +59,3 @@ issues: https://github.com/TimGrt/Ansible-Bootstrap/issues
 # uses 'fnmatch' to match the files or directories. Some directories and files like 'galaxy.yml', '*.pyc', '*.retry',
 # and '.git' are always filtered
 build_ignore: []
-

@@ -1,5 +1,4 @@
 ---
-
 - name: Bootstrap playbook, run it with '--ask-pass --ask-become-pass -e ansible_user=<available-privileged-user>' initially
   hosts: all
   roles:
