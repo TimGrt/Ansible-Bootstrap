@@ -1,10 +1,8 @@
 ---
-
 - name: Import tasks for sshpass installation
   ansible.builtin.import_tasks: sshpass_installation.yml
   tags:
     - sshpass
 
 - name: Import tasks for adding hosts to known_hosts
-  ansible.builtin.import_tasks: inventory_known_hosts.yml
-    - known_hosts
+  ansible.builtin.import_tasks: inventory_known_hosts.yml - known_hosts

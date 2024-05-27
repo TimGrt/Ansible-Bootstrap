@@ -1,8 +1,7 @@
 ---
-
 - name: Get SSH key for inventory hosts from known_hosts file
   ansible.builtin.command:
-    cmd: "ssh-keygen -F {{ hostvars[item]['ansible_host'] }}"
+    cmd: ssh-keygen -F {{ hostvars[item]['ansible_host'] }}
   changed_when: false
   failed_when: false
   check_mode: true
@@ -24,7 +23,7 @@
 
 - name: Get SSH keys of missing hosts
   ansible.builtin.command:
-    cmd: "ssh-keyscan -H {{ item }}"
+    cmd: ssh-keyscan -H {{ item }}
   changed_when: false
   loop: "{{ missing_hosts }}"
   register: missing_hosts_ssh_keys
