@@ -1,10 +1,9 @@
 ---
-
 - name: Create User for further Ansible automation
   ansible.builtin.user:
     name: "{{ automation_user }}"
     shell: /bin/bash
-    comment: "User for Ansible automation tasks"
+    comment: User for Ansible automation tasks
   become: true
 
 - name: Enable sudo permissions for Ansible user
@@ -12,7 +11,7 @@
     content: "{{ automation_user }} ALL=(ALL) NOPASSWD:ALL"
     dest: /etc/sudoers.d/ansible
     validate: /usr/sbin/visudo -cf %s
-    mode: 0644
+    mode: "0644"
   become: true
 
 - name: Ensure public key for current user exists
@@ -27,7 +26,7 @@
     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
   become: true
 
-- name: Upgrade all packages  # noqa package-latest
+- name: Upgrade all packages # noqa package-latest
   ansible.builtin.package:
     name: "*"
     state: latest
